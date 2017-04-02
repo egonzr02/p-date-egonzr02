@@ -1,5 +1,7 @@
-package es.unileon.prg.date;
+//Archivo: MainDate.java
+//Alumno: Elena Gonzalez Rodriguez
 
+package es.unileon.prg.date;
 
 public class Date {
 
@@ -7,16 +9,11 @@ public class Date {
 	private int month;
 	private int year;
 	
-	public Date (int day, int month, int year) throws DateException{
+	public Date (int day, int month, int year) {
 		
 		this.year = year;
 		
-		if (month >= 1 && month <= 12){
-			this.month = month;
-			
-		}else{
-			throw new DateException("Mes " +month+" NO valido, " + "valores posibles entre 1 y 12.");
-		}
+		this.month = month;
 			
 		this.day = day;
 			
@@ -40,15 +37,15 @@ public class Date {
 		return this.year;
 	}
 
-	void setDay(int Day){
+	void setDay(int day){
 		this.day = day;
 	}
 
-	void setMonth(int Month){
+	void setMonth(int month){
 		this.month = month;
 	}
 
-	void setYear(int Year){
+	void setYear(int year){
 		this.year = year;
 	}
 
@@ -65,64 +62,69 @@ public class Date {
 	}
 
 	public boolean isSame (Date another ){
-		return (today.isSameYear(another) && today.isSameMonth(another) && today.isSameDay(another));
+		return ((this.year == another.year) && (this.month == another.month) && (this.day == another.day));
 	}
 
-	private int NameMonth (int month){
+	public String NameMonth (int month){
 		
+		String monthName;
+
 		switch (this.month){
-			case 1: System.out.println("January");
+			
+			case 1: monthName = "January";
 				break;
-			case 2: System.out.println("February");
+			case 2: monthName = "February";
 				break;
-			case 3: System.out.println("March");
+			case 3: monthName = "March";
 				break;
-			case 4: System.out.println("April");
+			case 4: monthName = "April";
 				break;
-			case 5: System.out.println("May");
+			case 5: monthName = "May";
 				break;
-			case 6: System.out.println("June");
+			case 6: monthName = "June";
 				break;
-			case 7: System.out.println("July");
+			case 7: monthName = "July";
 				break;
-			case 8: System.out.println("August");
+			case 8: monthName = "August";
 				break;
-			case 9: System.out.println("September");
+			case 9: monthName = "September";
 				break;
-			case 10: System.out.println("October");
+			case 10: monthName = "October";
 				break;
-			case 11: System.out.println("November");
+			case 11: monthName = "November";
 				break;
-			case 12: System.out.println("December");
+			case 12: monthName = "December";
 				break;
 		}
 		return this.NameMonth(this.month);
 	} 
 
-	private int Season (int month){
-		
+	public String Season (int month){
+			
+		String seasonMonth;
 		switch (this.month){
+			
 			case 12: 
 			case 1: 
-			case 2: System.out.println("Winter");
+			case 2: seasonMonth = "Winter";
 				break;
 			case 3:
 			case 4:
-			case 5: System.out.println("Spring");
+			case 5: seasonMonth = "Spring";
 				break;
 			case 6:
 			case 7:
-			case 8: System.out.println("Summer");
+			case 8: seasonMonth = "Summer";
 				break;
 			case 9:
 			case 10:
-			case 11: System.out.println("Aumtumn");
+			case 11: seasonMonth = "Aumtumn";
 				break;
 		}
-		return Season(this.month);
+		return this.Season(this.month);
 	}	
 
-	private int getNumDaysMonth(int month){
+	public int getNumDaysMonth ( int month){
 		int numDays = 0;
 	
 		switch (this.month){

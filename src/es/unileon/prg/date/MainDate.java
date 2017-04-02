@@ -26,9 +26,9 @@ public class MainDate {
 
 		System.out.println(today.isSame(yesterday));
 
-		//today.NameMonth();
+		//System.out.println(today.NameMonth());
 		
-		//today.Season();
+		//System.out.println(today.Season());
 	
 		//System.out.println(today.getNumDaysMonth());
 		

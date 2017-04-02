@@ -149,6 +149,18 @@ public class Date {
 
 	}
 
+	public String monthsUntilEnd ( int month ){
+		int i = this.month;
+		do{
+			System.out.println(NameMonth(i));
+			i++;
+
+		}
+		while (i == 12);
+
+	return monthsUntilEnd(this.month);
+
+	}
 	
 }
 

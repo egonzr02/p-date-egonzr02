@@ -26,11 +26,20 @@ public class MainDate {
 
 		System.out.println(today.isSame(yesterday));
 
-		//System.out.println(today.NameMonth());
+		System.out.println(today.nameMonth());
 		
-		//System.out.println(today.Season());
+		System.out.println(today.season());
 	
 		//System.out.println(today.getNumDaysMonth());
+
+		today.dateUntilEndMonth();
+
+		today.monthsUntilEnd();
+
+		today.printMonthSameAmountDays();
+		
+
+
 		
 	}
 

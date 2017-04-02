@@ -1,4 +1,4 @@
-//Archivo: MainDate.java
+//Archivo: Date.java
 //Alumno: Elena Gonzalez Rodriguez
 
 package es.unileon.prg.date;
@@ -49,27 +49,42 @@ public class Date {
 		this.year = year;
 	}
 
+
+	//A method that prints if two dates are the same year
+
 	public boolean isSameYear (Date another ){
 		return this.year == another.year;
-	}	
+	}
+
+
+	//A method that prints if two dates are the same month	
 		
 	public boolean isSameMonth (Date another ){
 		return this.month == another.month;
 	}
 
+
+	//A method that prints if two dates are the same day
+
 	public boolean isSameDay (Date another ){
 		return this.day == another.day;
 	}
+
+
+	//A method that prints if two dates are the same
 
 	public boolean isSame (Date another ){
 		return ((this.year == another.year) && (this.month == another.month) && (this.day == another.day));
 	}
 
-	public String NameMonth (int month){
-		
-		String monthName;
 
-		switch (this.month){
+	//A method that prints the name of the month
+
+	public String nameMonth (){
+		
+		String monthName = "";
+
+		switch (month){
 			
 			case 1: monthName = "January";
 				break;
@@ -96,13 +111,15 @@ public class Date {
 			case 12: monthName = "December";
 				break;
 		}
-		return this.NameMonth(this.month);
+		return monthName;
 	} 
 
-	public String Season (int month){
+	//A method that prints the season of the month
+
+	public String season (){
 			
-		String seasonMonth;
-		switch (this.month){
+		String seasonMonth = "";
+		switch (month){
 			
 			case 12: 
 			case 1: 
@@ -121,13 +138,15 @@ public class Date {
 			case 11: seasonMonth = "Aumtumn";
 				break;
 		}
-		return this.Season(this.month);
+		return seasonMonth;
 	}	
 
-	public int getNumDaysMonth ( int month){
+	//A moethod that prints the number of days the month has
+
+	public int getNumDaysMonth (int month){
 		int numDays = 0;
 	
-		switch (this.month){
+		switch (month){
 			case 1:
 			case 3:
 			case 5:
@@ -144,22 +163,96 @@ public class Date {
 			case 2: numDays = 28;
 				break;
 		}
-		return this.getNumDaysMonth(this.month);
+		return numDays;
+	}
 
+
+
+	//A method that prints all dates until the end of the month
+
+	public void dateUntilEndMonth (){
+
+		for (int i = this.day; i <= getNumDaysMonth(this.month); i++ ) {
+
+			System.out.print(i);
+			
+		}
+		System.out.println(" ");
+	}
+
+
+	//A method that prints all months until the end of the year
+
+	public void monthsUntilEnd (){
+
+		for (int i = this.month; i <= 12; i++ ) {
+
+			String month = "";
+
+			switch (i){
+			
+			case 1: month = "January";
+				break;
+			case 2: month = "February";
+				break;
+			case 3: month = "March";
+				break;
+			case 4: month = "April";
+				break;
+			case 5: month = "May";
+				break;
+			case 6: month = "June";
+				break;
+			case 7: month = "July";
+				break;
+			case 8: month = "August";
+				break;
+			case 9: month = "September";
+				break;
+			case 10: month = "October";
+				break;
+			case 11: month = "November";
+				break;
+			case 12: month = "December";
+				break;
+			}
+
+			System.out.print(month);
+
+			//Si no repetia codigo imprimia siempre el mes de marzo
+			
+		}
+		System.out.println(" ");	
 
 	}
 
-	public String monthsUntilEnd ( int month ){
-		int i = this.month;
-		do{
-			System.out.println(NameMonth(i));
-			i++;
 
+	//A method that prints athe months with the same amount of days
+
+	public  void printMonthSameAmountDays(){
+
+		for (int i = 1; i <= 12 ; i++) {
+			if (getNumDaysMonth(i) == this.getNumDaysMonth(i)){
+				
+				System.out.print(nameMonth());
+			}
 		}
-		while (i == 12);
+		System.out.println(" ");
+	}
 
-	return monthsUntilEnd(this.month);
 
+	//A method that counts the number of days since the first day of the year
+
+	public int countDaysYear (){
+
+		int month, year, counter = 0;
+		for (int i = 1; i < this.month; i++ ) {
+			
+			counter = counter + getNumDaysMonth(i);		
+		}
+		counter = counter + this.day;
+
+		return counter;
 	}
 	
 }
